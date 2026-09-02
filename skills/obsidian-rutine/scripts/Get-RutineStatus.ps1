@@ -159,9 +159,12 @@ $skillOk = [bool]($skill -and $skill.LinkType -eq 'Junction')
 $skillDetail = 'missing'; if ($skillOk) { $skillDetail = 'junction in place' }
 Add-Check 'Claude' 'vault skill installed (junction)' $skillOk $skillDetail 'run Setup-Machine.ps1 (or Test-VaultLinks.ps1 -Fix)'
 
-$loggedIn = Test-Path "$claude\.credentials.json"
-$loginDetail = 'no credentials file'; if ($loggedIn) { $loginDetail = 'credentials present' }
-Add-Check 'Claude' 'Claude Code logged in' $loggedIn $loginDetail 'start claude once and log in'
+# Credentials may live in a file OR in the OS credential manager, so a missing
+# file is not proof of being logged out. Report it as a manual check, never as
+# a failure - telling a logged-in user to log in again is worse than silence.
+$loggedIn = (Test-Path "$claude\.credentials.json") -or (Test-Path "$claude\.credentials")
+if ($loggedIn) { Add-Check 'Claude' 'Claude Code logged in' $true 'credentials present' '' }
+else { Add-Check 'Claude' 'Claude Code logged in' $null 'no credentials file found (it may still be stored in the Windows credential manager)' 'if Claude Code asks you to authenticate, start claude once and log in' }
 
 # ---------- output ----------
 $done    = @($items | Where-Object { $_.Ok -eq $true })

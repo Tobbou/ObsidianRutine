@@ -178,7 +178,11 @@ else {
     $allowed = @('README.md', 'LICENSE', 'LICENSE.md', '.gitignore', '.gitattributes')
     $unexpected = @(Get-ChildItem $VaultPath -Force | Where-Object { $_.Name -ne '.git' -and $allowed -notcontains $_.Name })
     if ($unexpected.Count -gt 0) {
-      Die ("the repo is not empty (found: " + (($unexpected | ForEach-Object Name) -join ', ') + "). Use a fresh, empty repo.")
+      # remove the clone again: leaving it behind would make every re-run fail with
+      # "exists, is not empty", which is a dead end the user has to clear by hand
+      $names = ($unexpected | ForEach-Object Name) -join ', '
+      Remove-Item $VaultPath -Recurse -Force -ErrorAction SilentlyContinue
+      Die ("the repo is not empty (found: $names). Use a fresh, empty repo - the clone was removed again.")
     }
   }
   New-Item -ItemType Directory -Path $VaultPath -Force | Out-Null
