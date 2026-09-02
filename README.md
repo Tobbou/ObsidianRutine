@@ -6,7 +6,7 @@
 > *(Learn this skill: …)* — that sentence, given to Claude Code, is the whole installation.
 
 ## What you say, what happens
-
+Test
 **1. Learn the skill** — pick one:
 
 ```powershell
