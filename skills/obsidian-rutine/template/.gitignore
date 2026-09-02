@@ -1,0 +1,38 @@
+# Obsidian: ignore per-machine workspace state and caches.
+# Keep settings, plugins, hotkeys, and themes versioned so Claude (and future
+# machines) see the same configuration.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/workspaces.json
+.obsidian/cache
+.obsidian/*.json.backup
+
+# graph.json stores the graph view's zoom level, which Obsidian rewrites every
+# time the vault is opened - on every machine, on the same line. Git cannot
+# auto-merge that, so keeping it tracked produces a conflict whenever two
+# machines have both been opened since the last sync, and Obsidian Git halts
+# syncing on conflict.
+.obsidian/graph.json
+
+# Obsidian trash (when "Move to Obsidian trash" is enabled)
+.trash/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor junk
+*.swp
+*.swo
+*~
+
+# Defense in depth: never commit credentials anywhere in the vault.
+# The Claude config in 90-Meta/Claude/ deliberately excludes credentials,
+# but this is a belt-and-braces guard in case something slips in later.
+**/.credentials.json
+**/credentials.json
+
+# Agent scratch directories that tools sometimes create in the vault root.
+.tmp-*/
+**/.tmp-*/

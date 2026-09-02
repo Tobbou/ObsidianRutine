@@ -1,0 +1,1 @@
+Claude Code's per-project memory lands here: one `<slug>/memory/` folder per project, junctioned from `%USERPROFILE%\.claude\projects\<slug>\memory\`. New projects start with local-only memory; `Setup-Machine.ps1` (or `Test-VaultLinks.ps1 -Adopt`) adopts them into the vault so they reach git.

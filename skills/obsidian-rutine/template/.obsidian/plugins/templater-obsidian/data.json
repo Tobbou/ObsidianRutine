@@ -1,0 +1,13 @@
+{
+  "templates_folder": "90-Meta/Templates",
+  "trigger_on_file_creation": true,
+  "enable_folder_templates": true,
+  "folder_templates": [
+    {
+      "folder": "50-Daily",
+      "template": "90-Meta/Templates/daily.md"
+    }
+  ],
+  "enable_system_commands": false,
+  "syntax_highlighting": true
+}

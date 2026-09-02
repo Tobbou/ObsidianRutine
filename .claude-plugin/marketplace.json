@@ -1,0 +1,22 @@
+{
+  "name": "obsidian-rutine",
+  "metadata": {
+    "description": "ObsidianRutine - an Obsidian vault set up as a portable AI brain for Claude Code, installed by one skill"
+  },
+  "owner": {
+    "name": "Thomas Eldrup",
+    "url": "https://github.com/Tobbou"
+  },
+  "plugins": [
+    {
+      "name": "obsidian-rutine",
+      "description": "Installs Obsidian and git if missing, creates the vault structure, configures Obsidian (plugins, templates, daily notes, auto-backup), links Claude Code's config and memory into the vault, installs the vault skill that keeps pushing knowledge into it, and reports exactly what is still missing.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Thomas Eldrup",
+        "url": "https://github.com/Tobbou"
+      },
+      "source": "./"
+    }
+  ]
+}

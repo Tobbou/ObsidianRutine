@@ -1,0 +1,11 @@
+# Normalize line endings: LF in the repo and in the working tree on every OS.
+# Obsidian, VS Code and PowerShell all handle LF; this also stops the
+# "LF will be replaced by CRLF" warnings on Windows.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.pdf binary
+*.zip binary

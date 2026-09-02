@@ -1,0 +1,12 @@
+{
+  "name": "obsidian-rutine",
+  "displayName": "ObsidianRutine",
+  "version": "1.0.0",
+  "description": "Installs Obsidian and git if missing, creates the vault structure, configures Obsidian (plugins, templates, daily notes, auto-backup), links Claude Code's config and memory into the vault, installs the vault skill that keeps pushing knowledge into it, and reports exactly what is still missing.",
+  "author": {
+    "name": "Thomas Eldrup",
+    "url": "https://github.com/Tobbou"
+  },
+  "repository": "https://github.com/Tobbou/ObsidianRutine",
+  "keywords": ["obsidian", "knowledge-base", "memory", "vault", "setup", "pkm", "claude-code"]
+}
